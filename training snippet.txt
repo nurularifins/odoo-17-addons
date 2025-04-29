@@ -1,0 +1,30 @@
+python3 -m venv .venv
+sudo pip3 install -r /Users/nurularifins/Works/Web/odoo/requirements.txt
+pip install psycopg2-binary
+pip install --upgrade --requirement requirements.txt
+pip install --no-deps --no-index --find-links=/Users/nurularifins/Works/Web/odoo/ -r requirements.tx
+pip install legacy-cgi
+create user odoo with encrypted password 'Rahasia123';
+
+/Users/nurularifins/Works/Web/odoo_17_community/.venv/bin/python3 /Users/nurularifins/Works/Web/odoo/odoo-bin scaffold hospital /Users/nurularifins/Works/Web/odoo_17_community
+
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Run Odoo",
+            "type": "python",
+            "request": "launch",
+            "stopOnEntry": false,
+            "console": "integratedTerminal",
+            "python": "/Users/mac/odoo17env/bin/python3", // cari dengan which python3
+            "program": "/Users/mac/PycharmProjects/Odoo17/odoo/odoo-bin",
+            "args": [
+                "--config=/Users/mac/PycharmProjects/Sun_Motor/conf/odoo.conf",
+                "--database=sun_motor",
+                "--update=sun_purchase",
+                // "--update=sun_stock",
+            ]
+        },
+    ]
+}

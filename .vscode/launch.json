@@ -1,0 +1,24 @@
+// -- ------------------------------------
+// -- Perhatian
+// -- Khusus untuk Linux User :
+// -- hasil dari Copy Path tidak perlu diganti dengan double-backslash \\
+// -- ------------------------------------
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run Odoo",
+      "type": "python",
+      "request": "launch",
+      "stopOnEntry": false,
+      "console": "integratedTerminal",
+      "pythonPath": "/Users/nurularifins/Works/Web/odoo_17_community/.venv/bin/python3", // cari dengan which python3
+      "program": "/Users/nurularifins/Works/Web/odoo/odoo-bin",
+      "args": [
+        "--config=/Users/nurularifins/Works/Web/odoo_17_community/conf/odoo.conf",
+        "--database=odoo17",
+        "--update=hospital"
+      ]
+    }
+  ]
+}
