@@ -8,8 +8,21 @@
       <field name="arch" type="xml">
         <tree>
           <field name="name"/>
+          <field name="address_id"/>
+          <field name="alamat_id" string="Jalan"/>
           <field name="value"/>
           <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="address.list">
+      <field name="name">Adress List</field>
+      <field name="model">hospital.address</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name" string="Nama Alamat"/>
+          <field name="street" string="Jalan"/>
         </tree>
       </field>
     </record>
@@ -18,8 +31,14 @@
     <!-- actions opening views on models -->
 
     <record model="ir.actions.act_window" id="hospital.action_window">
-      <field name="name">hospital window</field>
+      <field name="name">Hospital Window</field>
       <field name="res_model">hospital.hospital</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="address.action_window">
+      <field name="name">Hospital Addresses</field>
+      <field name="res_model">hospital.address</field>
       <field name="view_mode">tree,form</field>
     </record>
 
@@ -27,7 +46,7 @@
     <!-- server action to the one above -->
 
     <record model="ir.actions.server" id="hospital.action_server">
-      <field name="name">hospital server</field>
+      <field name="name">Hospital Server</field>
       <field name="model_id" ref="model_hospital_hospital"/>
       <field name="state">code</field>
       <field name="code">
@@ -46,13 +65,13 @@
 
     <!-- menu categories -->
 
-    <menuitem name="Menu 1" id="hospital_menu_1" parent="hospital_menu_root"/>
-    <menuitem name="Menu 2" id="hospital_menu_2" parent="hospital_menu_root"/>
+    <menuitem name="Daftar Rumah Sakit" id="hospital_menu_1" parent="hospital_menu_root" action="hospital.action_window"/>
+    <menuitem name="Daftar Alamat" id="hospital_menu_2" parent="hospital_menu_root" action="address.action_window"/>
 
     <!-- actions -->
 
-    <menuitem name="List" id="hospital_menu_1_list" parent="hospital_menu_1"
+    <!-- <menuitem name="List" id="hospital_menu_1_list" parent="hospital_menu_1"
               action="hospital.action_window"/>
     <menuitem name="Server to list" id="hospital" parent="hospital_menu_2"
-              action="hospital.action_server"/>
+              action="hospital.action_server"/> -->
 </odoo>
