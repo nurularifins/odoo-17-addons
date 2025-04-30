@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="module_category_health_care" model="ir.module.category">
+        <field name="name">Health Care</field>
+        <field name="sequence">0</field>
+    </record>
+
+    <record id="hospital_manager_group" model="res.groups">
+        <field name="name">Manager Rumah Sakit</field>
+        <field name="category_id" ref="module_category_health_care" />
+    </record>
+</odoo>

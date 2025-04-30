@@ -2,3 +2,4 @@
 
 from . import models
 from . import address
+from . import inherit_res_partner

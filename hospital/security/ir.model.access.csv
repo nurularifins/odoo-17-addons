@@ -1,3 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_hospital_hospital,hospital.hospital,model_hospital_hospital,base.group_user,1,1,1,1
 access_hospital_address,hospital.address,model_hospital_address,base.group_user,1,1,1,1
+access_hair_color,hair.color,model_hair_color,base.group_user,1,1,1,1

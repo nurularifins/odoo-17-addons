@@ -1,4 +1,5 @@
-python3 -m venv .venv
+python3 -m venv .venv (untuk create new venv)
+source /Users/nurularifins/Works/Web/odoo_17_community/.venv/bin/activate (untuk masuk ke venv)
 sudo pip3 install -r /Users/nurularifins/Works/Web/odoo/requirements.txt
 pip install psycopg2-binary
 pip install --upgrade --requirement requirements.txt
@@ -8,23 +9,14 @@ create user odoo with encrypted password 'Rahasia123';
 
 /Users/nurularifins/Works/Web/odoo_17_community/.venv/bin/python3 /Users/nurularifins/Works/Web/odoo/odoo-bin scaffold hospital /Users/nurularifins/Works/Web/odoo_17_community
 
-{
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "name": "Run Odoo",
-            "type": "python",
-            "request": "launch",
-            "stopOnEntry": false,
-            "console": "integratedTerminal",
-            "python": "/Users/mac/odoo17env/bin/python3", // cari dengan which python3
-            "program": "/Users/mac/PycharmProjects/Odoo17/odoo/odoo-bin",
-            "args": [
-                "--config=/Users/mac/PycharmProjects/Sun_Motor/conf/odoo.conf",
-                "--database=sun_motor",
-                "--update=sun_purchase",
-                // "--update=sun_stock",
-            ]
-        },
-    ]
-}
+
+Running di Terminal
+python3 /Users/nurularifins/Works/Web/odoo/odoo-bin --config=/Users/nurularifins/Works/Web/odoo_17_community/conf/odoo.conf --database=odoo17 --update=hospital
+
+Running di Production
+odoo.sh
+
+Methods
+ 1. CRUD : create, write, unlink
+ 2. Action (untuk tombol)
+    Utility/helper -> Bebas untuk keperluan internal

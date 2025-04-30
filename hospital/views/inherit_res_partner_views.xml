@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_res_partner_form_inherit_hospital" model="ir.ui.view">
+            <field name="name">res.partner.form.inherit.hospital</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+               <xpath expr="//field[@name='website']" position="after">
+                <field name="linkedin" string="LinkedIn"></field>
+               </xpath>
+               <xpath expr="//field[@name='vat']" position="after">
+                <field name="gender" widget="selection" />
+                <field name="hair_colors" widget="many2many_tags" />
+               </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

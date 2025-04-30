@@ -9,15 +9,38 @@
         <tree>
           <field name="name"/>
           <field name="address_id"/>
-          <field name="alamat_id" string="Jalan"/>
           <field name="value"/>
           <field name="value2"/>
+          <field name="alamat_id" string="Jalan"/>
         </tree>
       </field>
     </record>
 
-    <record model="ir.ui.view" id="address.list">
-      <field name="name">Adress List</field>
+    <record model="ir.ui.view" id="hospital_kanban">
+      <field name="name">hospital.kanban</field>
+      <field name="model">hospital.hospital</field>
+      <field name="arch" type="xml">
+        <kanban>
+          <field name="name"/>
+          <field name="address_id"/>
+          <field name="alamat_id" string="Jalan"/>
+          <template>
+            <t t-name="kanban-box">
+                <div class="oe_kanban_global_click">
+                <strong><field name="name"/></strong>
+                <div class="oe_kanban_content">
+                    <field name="address_id"/>
+                    <field name="alamat_id" string="Jalan"/>
+                </div>
+                </div>
+            </t>
+          </template>
+        </kanban>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_address_list">
+      <field name="name">hospital.address.list</field>
       <field name="model">hospital.address</field>
       <field name="arch" type="xml">
         <tree>
@@ -27,16 +50,40 @@
       </field>
     </record>
 
+    <record id="hospital_view_form" model="ir.ui.view">
+        <field name="name">hospital.view.form</field>
+        <field name="model">hospital.hospital</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                        <group string="Hospital Information" >
+                            <group>
+                                <field name="name"/>
+                                <field name="address_id"/>
+                                <field name="email"/>
+                            </group>
+                            <group>
+                                <field name="value"/>
+                                <field name="value2"/>
+                                <field name="total_value"/>
+                            </group>
+                            <field name="description" placeholder="Masukkan deskripsi Rumah Sakit"/>
+                        </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
 
     <!-- actions opening views on models -->
 
     <record model="ir.actions.act_window" id="hospital.action_window">
       <field name="name">Hospital Window</field>
       <field name="res_model">hospital.hospital</field>
-      <field name="view_mode">tree,form</field>
+      <field name="view_mode">tree,form,kanban</field>
     </record>
 
-    <record model="ir.actions.act_window" id="address.action_window">
+    <record model="ir.actions.act_window" id="address_action_window">
       <field name="name">Hospital Addresses</field>
       <field name="res_model">hospital.address</field>
       <field name="view_mode">tree,form</field>
@@ -66,7 +113,7 @@
     <!-- menu categories -->
 
     <menuitem name="Daftar Rumah Sakit" id="hospital_menu_1" parent="hospital_menu_root" action="hospital.action_window"/>
-    <menuitem name="Daftar Alamat" id="hospital_menu_2" parent="hospital_menu_root" action="address.action_window"/>
+    <menuitem name="Daftar Alamat" id="hospital_menu_2" parent="hospital_menu_root" action="address_action_window"/>
 
     <!-- actions -->
 
